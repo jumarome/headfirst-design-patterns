@@ -1,12 +1,8 @@
 package cofee;
 
-public abstract class Beverage {
-    protected String description = "Unknown Beverage";
-    public abstract double cost();
-
-    public String getDescription() {
-        return description;
+public interface Beverage {
+    default String getDescription() {
+        return "Unknown Beverage";
     }
-
-
+    double cost();
 }

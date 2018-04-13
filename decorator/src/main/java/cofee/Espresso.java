@@ -1,9 +1,10 @@
 package cofee;
 
-public class Espresso extends Beverage {
+public class Espresso implements Beverage {
 
-    public Espresso() {
-        description = "Espresso";
+    @Override
+    public String getDescription() {
+        return "Espresso";
     }
 
     @Override

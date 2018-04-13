@@ -1,9 +1,10 @@
 package cofee;
 
-public class HouseBlend extends Beverage {
+public class HouseBlend implements Beverage {
 
-    public HouseBlend() {
-        description = "House Blend Cofee";
+    @Override
+    public String getDescription() {
+        return "House Blend Cofee";
     }
 
     @Override

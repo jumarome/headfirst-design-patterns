@@ -1,13 +1,14 @@
 package cofee;
 
-public class DarkRoast extends Beverage {
-
-    public DarkRoast() {
-        description = "Dark Roast";
-    }
+public class DarkRoast implements Beverage {
 
     @Override
     public double cost() {
         return 1.75;
+    }
+
+    @Override
+    public String getDescription() {
+        return "Dark Roast";
     }
 }
