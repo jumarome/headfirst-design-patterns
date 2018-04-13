@@ -1,18 +1,24 @@
+import java.util.*;
+
 public class CurrentConditionsDisplay implements Observer,DisplayElement {
     private float temperature;
     private float humidity;
-    private Subject weatherData;
+    private Observable observable;
 
-    public CurrentConditionsDisplay(Subject weatherData) {
-        this.weatherData = weatherData;
-        weatherData.registerObserver(this);
+
+    public CurrentConditionsDisplay(Observable observable) {
+        this.observable = observable;
+        observable.addObserver(this);
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure) {
-        this.temperature=temp;
-        this.humidity=humidity;
-        display();
+    public void update(Observable o, Object arg) {
+        if(o instanceof WeatherData){
+            WeatherData weatherData = (WeatherData) o;
+            temperature = weatherData.getTemperature();
+            humidity = weatherData.getHumidity();
+            display();
+        }
     }
 
     @Override
